@@ -28,7 +28,7 @@ def forecast(column, pd='M', n_pds=12):
     m = Prophet().fit(newdf)
     future = m.make_future_dataframe(freq=pd, periods=n_pds)
     fcst = m.predict(future)
-    grph = m.plot(fcst)
+    grph = m.plot(fcst, xlabel='Date', ylabel=column)
     return grph
     
 column = 'Headcount'
